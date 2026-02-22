@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SenGrok Animator - par ciis-doro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="sidepanel.css">
+</head>
+
+<body class="dark-theme">
+  <div class="app-container">
+    <!-- Grok Presence Overlay -->
+    <div id="presence-overlay" class="presence-overlay">
+      <div class="overlay-content">
+        <div class="overlay-icon">🇸🇳</div>
+        <h2>Grok non détecté</h2>
+        <p>Pour utiliser <b>SenGrok Animator</b>, vous devez être sur la page de Grok.</p>
+        <button id="open-grok-btn" class="btn-mint">Ouvrir Grok.com</button>
+      </div>
+    </div>
+
+    <header class="main-header">
+      <div class="logo-area">
+        <svg class="logo-flag" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+          <rect width="300" height="600" fill="#00853f" />
+          <rect x="300" width="300" height="600" fill="#fdef42" />
+          <rect x="600" width="300" height="600" fill="#e31b23" />
+          <polygon points="450,210 485,318 598,318 506,384 542,492 450,426 358,492 394,384 302,318 415,318"
+            fill="#00853f" />
+        </svg>
+        <h1>SenGrok Animator</h1>
+      </div>
+      <div class="header-links">
+        <a href="#" class="link-icon" id="guide-open">📖 Guide</a>
+        <a href="#" class="link-icon">💬</a>
+      </div>
+    </header>
+
+    <div class="author-label">
+      Author: <a href="author.html" target="_blank">ciis-doro ↗</a>
+    </div>
+
+    <nav class="tab-nav">
+      <button class="tab-btn active" data-tab="control">
+        <span class="icon">⊞</span> Control
+      </button>
+      <button class="tab-btn" data-tab="setting">
+        <span class="icon">⚙</span> Setting
+      </button>
+    </nav>
+
+    <main class="tab-content">
+      <!-- Control Tab -->
+      <section id="control" class="tab-pane active">
+        <div class="mode-grid">
+          <button class="mode-btn btn-primary active" data-mode="text-to-video">
+            <span class="icon">✎</span> Text to Video
+          </button>
+          <button class="mode-btn" data-mode="frame-to-video">
+            <span class="icon">🖼</span> Frame to Video
+          </button>
+          <button class="mode-btn" data-mode="text-to-image">
+            <span class="icon">☆</span> Text to Image
+          </button>
+          <button class="mode-btn" data-mode="image-to-image">
+            <span class="icon">🖼</span> Image to Image
+          </button>
+        </div>
+
+        <div class="input-card">
+          <div class="card-title">
+            <span class="icon">⚡</span> Concurrent Prompts
+          </div>
+          <div class="number-box">
+            <input type="number" id="concurrent-prompts" value="1" min="1">
+            <div class="box-desc">Number of prompts to process simultaneously (min 3s between)</div>
+          </div>
+        </div>
+
+        <div class="input-card">
+          <div class="card-title">
+            <span class="icon">🕒</span> Prompt Delay (seconds)
+          </div>
+          <div class="spinner-box">
+            <button class="spinner-btn" id="delay-down">⌵</button>
+            <input type="number" id="prompt-delay" value="30">
+            <button class="spinner-btn" id="delay-up">⌃</button>
+          </div>
+          <div class="box-desc">Wait time between prompts when running batches.</div>
+        </div>
+
+        <div class="input-card">
+          <div class="card-title">
+            <span class="icon">📝</span> Content Builder
+          </div>
+          <div class="prompt-builder">
+            <textarea id="prompt-input" placeholder="Main Visual Prompt:
+Describe what happens in the video.
+Separate multiple scenes with a blank line."></textarea>
+
+            <div id="advanced-fields" class="advanced-fields">
+              <input type="text" id="image-ref" placeholder="Reference Image URL (optional)">
+
+              <div class="dialogue-section">
+                <div class="sub-label">Dialogues & Scripts</div>
+                <textarea id="dialogue-input" placeholder="Enter dialogues for each scene.
+Use [Scene 1], [Scene 2] markers if needed."></textarea>
+                <div class="box-desc">Optimized for multi-video coordination.</div>
+              </div>
+            </div>
+
+            <button id="add-to-queue" class="btn-primary">Add to Sequence</button>
+          </div>
+          <div class="box-desc">Define styles, duration, and visual elements clearly...</div>
+        </div>
+
+        <div class="queue-section">
+          <div class="section-header">
+            <span class="icon">≡</span> PROMPT QUEUE
+            <button id="clear-queue" class="btn-text">Clear All</button>
+          </div>
+          <div id="queue-list" class="queue-list">
+            <div class="empty-state">Queue is currently empty.</div>
+          </div>
+        </div>
+
+        <div class="sticky-actions">
+          <button id="start-batch" class="btn-mint">Start Batch</button>
+          <button id="stop-batch" class="btn-danger" disabled>Stop</button>
+        </div>
+      </section>
+
+      <!-- Setting Tab -->
+      <section id="setting" class="tab-pane">
+        <div class="input-card">
+          <div class="card-title"><span class="icon">⊞</span> Default Mode</div>
+          <select id="default-mode">
+            <option value="text-to-video">Text to Video</option>
+            <option value="frame-to-video">Frame to Video</option>
+            <option value="text-to-image">Text to Image</option>
+          </select>
+          <div class="box-desc">Default mode when creating new videos.</div>
+        </div>
+
+        <div class="input-card">
+          <div class="card-title"><span class="icon">⚙</span> Model</div>
+          <select id="gen-model">
+            <option value="default">Default</option>
+            <option value="fast">Fast</option>
+            <option value="quality">High Quality</option>
+          </select>
+          <div class="box-desc">Select the generation model to use.</div>
+        </div>
+
+        <div class="input-card">
+          <div class="card-title"><span class="icon">🖼</span> Default Aspect Ratio</div>
+          <select id="aspect-ratio">
+            <option value="16:9">16:9 (YouTube)</option>
+            <option value="9:16">9:16 (TikTok/Reels)</option>
+            <option value="1:1">1:1 (Square)</option>
+          </select>
+          <div class="box-desc">Video frame ratio (16:9 or 9:16).</div>
+        </div>
+
+        <div class="input-card">
+          <div class="card-title"><span class="icon">≡</span> Outputs per Prompt</div>
+          <input type="number" id="outputs-per-prompt" value="1" min="1">
+          <div class="box-desc">How many videos/images to create from each prompt.</div>
+        </div>
+
+        <div class="input-card">
+          <div class="card-title"><span class="icon">🎥</span> Default Video Frame</div>
+          <select id="video-duration">
+            <option value="6">6 seconds</option>
+            <option value="10">10 seconds</option>
+          </select>
+          <div class="box-desc">Default duration setting for prompts.</div>
+        </div>
+
+        <div class="input-card">
+          <div class="card-title"><span class="icon">⬇</span> Auto Download Quality</div>
+          <select id="download-quality">
+            <option value="480p">480p</option>
+            <option value="720p">720p</option>
+            <option value="1080p">1080p</option>
+            <option value="4k">4K (Max)</option>
+          </select>
+          <div class="box-desc">Select video quality to automatically download.</div>
+        </div>
+
+        <div class="input-card">
+          <div class="card-title"><span class="icon">文</span> Language</div>
+          <input type="text" id="lang-pref" placeholder="Preferred language (Auto)">
+          <div class="box-desc">Select your preferred language.</div>
+        </div>
+
+        <div class="settings-footer">
+          <button id="reset-defaults" class="btn-text">↻ Reset Defaults</button>
+          <button id="save-settings" class="btn-mint">✓ Save</button>
+        </div>
+        <div class="box-desc text-center">Settings are automatically synced across all browser tabs.</div>
+      </section>
+    </main>
+
+    <div class="progress-bar-container">
+      <div id="progress-bar" class="progress-bar" style="width: 0%"></div>
+    </div>
+
+    <!-- Guide Modal -->
+    <div id="guide-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Guide d'utilisation SenGrok</h2>
+          <button id="guide-close" class="btn-close">✕</button>
+        </div>
+        <div class="modal-body">
+          <h3>🚀 Commencer</h3>
+          <p>Utilisez le <b>Content Builder</b> pour créer votre séquence d'animations.</p>
+
+          <h3>📝 Modes de Génération</h3>
+          <ul>
+            <li><b>Text to Video:</b> Créez une vidéo à partir d'une description.</li>
+            <li><b>Frame to Video:</b> Animez une image existante.</li>
+            <li><b>Text/Image to Image:</b> Générez des visuels statiques.</li>
+          </ul>
+
+          <h3>💬 Dialogues & Scripts</h3>
+          <p>Pour les animations complexes, utilisez la section <b>Dialogues</b>. Vous pouvez y mettre le texte qui sera
+            coordonné avec chaque scène. Séparez vos scènes par une ligne vide dans le prompt principal.</p>
+
+          <h3>⚡ Paramètres Avancés</h3>
+          <ul>
+            <li><b>Concurrent Prompts:</b> Nombre de tâches lancées en même temps.</li>
+            <li><b>Prompt Delay:</b> Nombre de secondes d'attente entre chaque requête.</li>
+          </ul>
+
+          <h3>▶️ Exécution</h3>
+          <p>Cliquez sur <b>Add to Sequence</b> pour remplir la file d'attente, puis sur <b>Start Batch</b> pour lancer
+            l'automatisation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="sidepanel.js"></script>
+</body>
+
+</html>

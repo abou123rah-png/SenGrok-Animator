@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À propos de l'Auteur - ciis-doro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-sky: #f0f9ff;
+            --primary: #0ea5e9;
+            --primary-dark: #0284c7;
+            --senegal-green: #00853f;
+            --senegal-yellow: #fdef42;
+            --senegal-red: #e31b23;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-sky);
+            background-image:
+                radial-gradient(circle at 0% 0%, rgba(14, 165, 233, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(0, 133, 63, 0.05) 0%, transparent 50%);
+            color: var(--text-main);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .profile-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(14, 165, 233, 0.2);
+            border-radius: 30px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .avatar-container {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--senegal-green), var(--senegal-yellow), var(--senegal-red));
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+            color: white;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 0 0 10px;
+            color: var(--primary-dark);
+        }
+
+        .author-tag {
+            background: rgba(14, 165, 233, 0.1);
+            color: var(--primary-dark);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: var(--text-muted);
+        }
+
+        .donation-section {
+            border-top: 1px dashed rgba(14, 165, 233, 0.3);
+            padding-top: 30px;
+        }
+
+        .donation-section h2 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .donation-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .donation-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: white;
+            padding: 15px 20px;
+            border-radius: 15px;
+            text-decoration: none;
+            color: var(--text-main);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            text-align: left;
+        }
+
+        .donation-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-color: var(--primary);
+        }
+
+        .om-logo {
+            width: 40px;
+            height: 40px;
+            background: #ff6600;
+            color: white;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 800;
+            font-size: 0.8rem;
+        }
+
+        .pp-logo {
+            width: 40px;
+            height: 40px;
+            background: #003087;
+            color: white;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        .method-info b {
+            display: block;
+            font-size: 1rem;
+        }
+
+        .method-info span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .btn-back {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="profile-card">
+        <div class="avatar-container">🇸🇳</div>
+        <h1>M. Cissé Doro</h1>
+        <div class="author-tag">ciis-doro</div>
+        <p>Passionné par l'automatisation et l'IA, je développe des outils pour simplifier vos workflows créatifs.
+            <b>SenGrok Animator</b> est le fruit de ce travail acharné.
+        </p>
+
+        <div class="donation-section">
+            <h2>Soutenir mon travail ❤️</h2>
+            <p>Si vous êtes satisfait de cet outil, votre soutien m'aide énormément à continuer le développement et les
+                mises à jour.</p>
+
+            <div class="donation-grid">
+                <!-- Orange Money -->
+                <div class="donation-item">
+                    <div class="om-logo">OM</div>
+                    <div class="method-info">
+                        <b>Orange Money / Wave (Sénégal)</b>
+                        <span>Numéro : +221 77 226 51 86</span>
+                    </div>
+                </div>
+
+                <!-- PayPal -->
+                <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=cissdoro@gmail.com&item_name=Support+SenGrok+Animator&currency_code=EUR"
+                    target="_blank" class="donation-item">
+                    <div class="pp-logo">PP</div>
+                    <div class="method-info">
+                        <b>PayPal (Monde)</b>
+                        <span>Soutenir via cissdoro@gmail.com</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer">
+            Merci pour votre confiance et votre générosité ! 🙏
+        </div>
+        <a href="sidepanel.html" class="btn-back">← Retour à l'extension</a>
+    </div>
+</body>
+
+</html>

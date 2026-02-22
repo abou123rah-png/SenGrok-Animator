@@ -1,0 +1,37 @@
+{
+    "manifest_version": 3,
+    "name": "SenGrok Animator",
+    "version": "1.0.1",
+    "description": "Automatisation intelligente de Grok par ciis-doro (Thème Sénégal)",
+    "permissions": [
+        "sidePanel",
+        "storage",
+        "downloads",
+        "scripting",
+        "tabs"
+    ],
+    "host_permissions": [
+        "https://grok.com/*",
+        "https://x.com/*"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "side_panel": {
+        "default_path": "sidepanel.html"
+    },
+    "action": {
+        "default_title": "Open Grok Automation Side Panel"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://grok.com/*",
+                "https://x.com/*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ]
+}
