@@ -12,7 +12,7 @@
 
 ## 📦 Comment Installer (Gratuitement)
 Comme cette extension est en développement open-source, voici comment l'installer :
-1. Téléchargez le code source (Zip) depuis ce repository GitHub.
+1. Téléchargez le code source (Zip) depuis le dépôt officiel : [GitHub SenGrok Animator](https://github.com/abou123rah-png/SenGrok-Animator)
 2. Décompressez le fichier sur votre ordinateur.
 3. Ouvrez Chrome et allez dans `chrome://extensions/`.
 4. Activez le **Mode développeur** (en haut à droite).
@@ -25,4 +25,3 @@ Si vous aimez cet outil, n'hésitez pas à soutenir le créateur sénégalais **
 
 ## 📍 Mots-clés / SEO
 Grok AI automation, Grok video generator, xAI automation tool, batch prompt Grok, Senegal AI developer, ciis-doro, SenGrok Animator, Chrome extension for Grok.
-# SenGrok-Animator
