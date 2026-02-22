@@ -2,6 +2,8 @@
 
 **SenGrok Animator** est une extension Chrome gratuite et performante conçue pour automatiser la création de vidéos et d'images sur [xAI Grok](https://grok.com/imagine). Optimisée par **ciis-doro**, elle offre une interface fluide (Sky Blue Senegal) et des fonctionnalités uniques pour les créateurs de contenu.
 
+🔗 **Dépôt Officiel (Source Code) :** [https://github.com/abou123rah-png/SenGrok-Animator](https://github.com/abou123rah-png/SenGrok-Animator)
+
 ## 🚀 Fonctionnalités Clés
 - **Batch Video Generation** : Lancez plusieurs prompts en une seule fois.
 - **Content Builder** : Gérez vos prompts visuels et vos dialogues/scripts de manière coordonnée.
