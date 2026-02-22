@@ -20,8 +20,12 @@
     "side_panel": {
         "default_path": "sidepanel.html"
     },
+    "icons": {
+        "128": "icons/icon.svg"
+    },
     "action": {
-        "default_title": "Open Grok Automation Side Panel"
+        "default_title": "Open Grok Automation Side Panel",
+        "default_icon": "icons/icon.svg"
     },
     "content_scripts": [
         {

@@ -18,9 +18,13 @@ Pour rendre votre extension **SenGrok Animator** disponible partout et gratuitem
 - Cliquez sur "Commit changes".
 
 ## 4. Visibilité et Recherche (SEO)
-- **Settings > General** : Dans la section "Description", mettez : *"Automatisation IA Vidéo pour Grok par ciis-doro. Batch prompts et scripts d'animation (Sénégal)."*
-- **Settings > Topics** : Ajoutez des tags comme `grok-ai`, `automation`, `chrome-extension`, `senegal`, `artificial-intelligence`.
-- GitHub informera automatiquement les moteurs de recherche (Google, Bing) de l'existence de votre projet.
+- Retournez sur la page principale de votre dépôt (cliquez sur le nom du projet en haut à gauche).
+- Dans la colonne de droite, cherchez la section **"About"**.
+- Cliquez sur l'icône **⚙️ (petit écrou)** à droite de "About".
+- Dans la fenêtre qui s'ouvre :
+  - **Description** : *"Automatisation IA Vidéo pour Grok par ciis-doro. Batch prompts et scripts d'animation (Sénégal)."*
+  - **Topics** : Ajoutez `grok-ai`, `automation`, `senegal`, `chrome-extension`, `artificial-intelligence`.
+- Cliquez sur **"Save changes"**.
 
 ## 5. Partager
 - Partagez le lien de votre dépôt sur les réseaux sociaux (X, LinkedIn, Facebook).

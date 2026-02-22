@@ -1,7 +1,29 @@
 <svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="128" height="128" rx="28" fill="#0F172A"/>
-<circle cx="64" cy="64" r="40" stroke="#6366F1" stroke-width="8"/>
-<path d="M64 40V88" stroke="#6366F1" stroke-width="8" stroke-linecap="round"/>
-<path d="M40 64H88" stroke="#6366F1" stroke-width="8" stroke-linecap="round"/>
-<circle cx="64" cy="64" r="20" fill="#6366F1"/>
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0EA5E9"/>
+      <stop offset="100%" stop-color="#0284C7"/>
+    </linearGradient>
+    <filter id="shadow" x="-10" y="-10" width="148" height="148" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="rgba(0,0,0,0.2)"/>
+    </filter>
+  </defs>
+  
+  <!-- Background Card -->
+  <rect width="128" height="128" rx="30" fill="url(#bgGrad)" filter="url(#shadow)"/>
+  <rect x="6" y="6" width="116" height="116" rx="26" fill="white" fill-opacity="0.05" stroke="white" stroke-opacity="0.1" stroke-width="1"/>
+  
+  <!-- Senegal Colors Side Strips -->
+  <rect x="0" y="44" width="8" height="40" rx="4" fill="#00853F"/>
+  <rect x="120" y="44" width="8" height="40" rx="4" fill="#E31B23"/>
+  <rect x="44" y="0" width="40" height="8" rx="4" fill="#FDEF42"/>
+  
+  <!-- Central Glass Circle -->
+  <circle cx="64" cy="64" r="35" fill="white" fill-opacity="0.15" stroke="white" stroke-opacity="0.2" stroke-width="1.5"/>
+  
+  <!-- Senegal Star -->
+  <path d="M64 44L68.5 58.5H83L71.5 68L76 82.5L64 74L52 82.5L56.5 68L45 59.5H59.5L64 44Z" fill="#FDEF42"/>
+  
+  <!-- Play Indicator / Animator Symbol -->
+  <path d="M60 60L72 64L60 68V60Z" fill="white" fill-opacity="0.9"/>
 </svg>
